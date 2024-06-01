@@ -1,7 +1,6 @@
 
 ### Diagrama de Flujo de Iniciar Sesión
 
-```markdown
 # Diagrama de Flujo de Iniciar Sesión
 
 ```mermaid
