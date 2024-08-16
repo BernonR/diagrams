@@ -3,13 +3,17 @@
 ```mermaid
 graph TD
     A[Inicio] --> B[Proceso creado]
-    B --> C{Proceso cargado en memoria}
-    C -->|Sí| D[Proceso listo]
-    D --> E{Seleccionado por el planificador?}
-    E -->|Sí| F[Proceso en ejecución]
-    F --> G{Esperando E/S?}
-    G -->|Sí| H[Proceso bloqueado]
-    H --> I{Evento completado?}
-    I -->|Sí| D
-    G -->|No| J[Proceso finalizado]
-    J --> K[Fin]
+    B --> C[Proceso listo]
+    C --> D{Seleccionado por el planificador?}
+    D -->|Sí| E[Proceso en ejecución]
+    E --> F{Esperando evento o en espera?}
+    F -->|Sí| G[Proceso suspendido]
+    G --> H{Evento completado?}
+    H -->|Sí| C
+    F -->|No| I{Proceso detenido por señal?}
+    I -->|Sí| J[Proceso detenido]
+    J --> K{Reanudado por señal?}
+    K -->|Sí| C
+    E --> L{Proceso terminado?}
+    L -->|Sí| M[Proceso zombi]
+    M --> N[Fin]
