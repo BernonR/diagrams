@@ -1,4 +1,4 @@
-# Diagrama Estados de un proceso en Windows
+# Diagrama de Estados de proceso en Linux
 
 ```mermaid
 graph TD
